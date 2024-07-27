@@ -20,12 +20,15 @@ class AuthController extends Controller
             'role' => 'required|string|max:255',
         ]);
 
-        if ($validator->fails()) {
+        /*if ($validator->fails()) {
             if ($request->wantsJson()) {
                 return response()->json($validator->errors(), 400);
             } else {
                 return back()->withErrors($validator)->withInput();
             }
+        }*/
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
 
         $user = User::create([
@@ -35,11 +38,17 @@ class AuthController extends Controller
             'role' => $request->role,
         ]);
 
-        if ($request->wantsJson()) {
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        /*if ($request->wantsJson()) {
             return response()->json($user, 201);
         } else {
             return redirect()->route('users.index');
-        }
+        }*/
+        return response()->json([
+            'user' => $user,
+            'token' => $token,
+        ], 201);
     }
 
     // Метод авторизации пользователя

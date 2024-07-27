@@ -32,11 +32,19 @@ Route::post('/token', function (Request $request) {
 
     $user = User::where('email', $request->email)->first();
 
-    if (! $user || ! Hash::check($request->password, $user->password)) {
+    if (!$user) {
+        return response()->json(['message' => 'User not found.'], 404);
+    }
+
+    if (!Hash::check($request->password, $user->password)) {
+        return response()->json(['message' => 'Incorrect password.'], 401);
+    }
+
+    /*if (! $user || ! Hash::check($request->password, $user->password)) {
         return response()->json([
             'message' => 'The provided credentials are incorrect.'
         ], 401);
-    }
+    }*/
 
     $token = $user->createToken($request->device_name)->plainTextToken;
 
