@@ -79,23 +79,9 @@ class UserController extends Controller
 
     // Методы для веб-интерфейса
 
-    /*public function webIndex()
+    public function webIndex()
     {
         $users = User::all();
-        return view('users.index', compact('users'));
-    }*/
-    public function webIndex(Request $request)
-    {
-        $search = $request->input('search');
-        $query = User::query();
-
-        if ($search) {
-            $query->where('name', 'like', "%{$search}%")
-                  ->orWhere('email', 'like', "%{$search}%");
-        }
-
-        $users = $query->paginate(10); // Пагинация с 10 пользователями на странице
-
         return view('users.index', compact('users'));
     }
 
@@ -178,14 +164,5 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('users.index')->with('success', 'User deleted successfully.');
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return redirect('/');
     }
 }
