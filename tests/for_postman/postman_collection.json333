@@ -1,0 +1,237 @@
+{
+    "info": {
+      "_postman_id": "1f41c5b2-d4eb-4968-92cc-85928e45ff5f",
+      "name": "User API - Gro",
+      "description": "API для управления исполнителями и заказами",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Authentication (Passport)",
+        "item": [
+          {
+            "name": "Получить токен",
+            "request": {
+              "method": "POST",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/token",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "token"]
+              },
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "email",
+                    "value": "api@xetc.com",
+                    "type": "text"
+                  },
+                  {
+                    "key": "password",
+                    "value": "password123",
+                    "type": "text"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "Обновить токен",
+            "request": {
+              "method": "POST",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/token/refresh",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "token", "refresh"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Просмотр активных токенов",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/tokens",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "tokens"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Удалить токен",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/tokens/{{token_id}}",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "tokens", "{{token_id}}"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Просмотр клиентов",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/clients",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "clients"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Добавить клиента",
+            "request": {
+              "method": "POST",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/clients",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "clients"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              },
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "client_name",
+                    "value": "New Client",
+                    "type": "text"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "name": "Удалить клиента",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/clients/{{client_id}}",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "clients", "{{client_id}}"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Просмотр всех активных сессий пользователя",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/sessions",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "sessions"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Закрыть сессию",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/sessions/{{session_id}}",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "sessions", "{{session_id}}"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Просмотр доступных областей (scopes)",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/scopes",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "scopes"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Просмотр персональных токенов доступа",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/personal-access-tokens",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "personal-access-tokens"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          },
+          {
+            "name": "Создать персональный токен доступа",
+            "request": {
+              "method": "POST",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/personal-access-tokens",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "personal-access-tokens"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              },
+              "body": {
+                "mode": "raw",
+                "raw": "{\"name\": \"New Personal Access Token\"}"
+              }
+            }
+          },
+          {
+            "name": "Удалить персональный токен доступа",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://user-api.gro/api/passport/personal-access-tokens/{{token_id}}",
+                "protocol": "http",
+                "host": ["user-api", "gro"],
+                "path": ["api", "passport", "personal-access-tokens", "{{token_id}}"]
+              },
+              "headers": {
+                "Authorization": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

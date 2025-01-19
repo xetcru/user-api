@@ -1,0 +1,256 @@
+{
+	"info": {
+		"name": "User API",
+		"_postman_id": "ebefb1b1-d3b5-4415-b370-d410a96003de",
+		"description": "User API collection for managing partnerships, orders, and workers.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"api@xetc.com\", \"password\": \"password123\"}"
+						},
+						"url": {
+							"raw": "http://user-api.gro/api/passport/token",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"passport",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tokens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://user-api.gro/api/passport/tokens",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"passport",
+								"tokens"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Partnerships (Companies)",
+			"item": [
+				{
+					"name": "Create Partnership",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"New Company\"}"
+						},
+						"url": {
+							"raw": "http://user-api.gro/api/partnerships",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"partnerships"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Partnerships",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://user-api.gro/api/partnerships",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"partnerships"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"type_id\": 1, \"partnership_id\": 1, \"user_id\": 1, \"description\": \"Description of order\", \"date\": \"2025-01-01\", \"address\": \"Sample address\", \"amount\": 500, \"status\": \"Created\"}"
+						},
+						"url": {
+							"raw": "http://user-api.gro/api/orders",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Worker to Order",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"worker_id\": 1, \"amount\": 200}"
+						},
+						"url": {
+							"raw": "http://user-api.gro/api/orders/1/assign-worker",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"orders",
+								"1",
+								"assign-worker"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Workers",
+			"item": [
+				{
+					"name": "Create Worker",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"name\": \"John\", \"second_name\": \"Doe\", \"surname\": \"Smith\", \"phone\": \"1234567890\"}"
+						},
+						"url": {
+							"raw": "http://user-api.gro/api/workers",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"workers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Workers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer fYCTPxxkfbuwUK840rOLQYpeI89Kc0GgqneybGjI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://user-api.gro/api/workers",
+							"protocol": "http",
+							"host": [
+								"user-api",
+								"gro"
+							],
+							"path": [
+								"api",
+								"workers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
